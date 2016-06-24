@@ -25,23 +25,27 @@ while($msg = $messages->fetch_assoc())
 {
 if($msg['author']=='beau')
 {
-echo '<div class="message admin"><img class="chatimg" src="data:image/jpeg;base64,'.$sess->getChatImage($msg['author_id'])['chatimage'].'"></img>';
+echo '<div class="message admin" style="font-family: Source Sans Pro; font-size: 18px"><img class="chatimg" src="'.$sess->getImage($msg['author_id']).'"/>';
 echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
 }
 elseif($msg['author']=='Logan'){
-	echo '<div class="message" style="color:#00FF00"><img class="chatimg" src="data:image/jpeg;base64,'.$sess->getChatImage($msg['author_id'])['chatimage'].'"></img>';
+	echo '<div class="message" style="color:#00FF00;font-family: Source Sans Pro; font-size: 18px"><img class="chatimg" src="'.$sess->getImage($msg['author_id']).'"/>';
 echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
 }
 elseif($msg['author']=='Yungvegan '){
-	echo '<div class="message" style="color:#FFBB00"><img class="chatimg" src="data:image/jpeg;base64,'.$sess->getChatImage($msg['author_id'])['chatimage'].'"></img>';
+	echo '<div class="message" style="color:#FFBB00;font-family: Source Sans Pro; font-size: 18px"><img class="chatimg" src="'.$sess->getImage($msg['author_id']).'"/>';
 echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
 }
 elseif($msg['author']=='coco_in_da_crib'){
-	echo '<div class="message" style="color:#FF00FF"><img class="chatimg" src="data:image/jpeg;base64,'.$sess->getChatImage($msg['author_id'])['chatimage'].'"></img>';
+	echo '<div class="message" style="color:#FF00FF; font-family: Source Sans Pro; font-size: 18px"><img class="chatimg" src="'.$sess->getImage($msg['author_id']).'"/>';
 echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
 }
 else {
-echo '<div class="message"><img class="chatimg" src="data:image/jpeg;base64,'.$sess->getChatImage($msg['author_id'])['chatimage'].'"></img>';
+echo '<div class="message" style = "font-family: Source Sans Pro; font-size: 18px"><img class="chatimg" src="'.$sess->getChatImageActual($msg['author_id']).'"/>';
+
+	//old way-
+	//'data:image/jpeg;base64,.$sess->getChatImageActual($msg['author_id'])['chatimage']
+	
 echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
 }
 }

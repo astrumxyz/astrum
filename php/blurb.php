@@ -16,7 +16,6 @@ $account = $sess->Verify($cookie);
 //$blurbtxt=$_POST["blurbEdit"]; //name of input
  $blurbtxt=$_POST['blurbEdit'];  
 echo $blurbtxt; 
-echo 'hi';
 
 $dbh = new mysqli("localhost","username","password","sqlserver");
  $change = "UPDATE accounts SET blurb='".$blurbtxt."' WHERE username='".$account['username']."'";

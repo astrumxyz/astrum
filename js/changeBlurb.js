@@ -5,10 +5,25 @@ $(document).ready(function() {
     
 	
 	$('.blurbEdit').hide();
+	$('.blurbEdit').height(0);
 	
     $('.changeBlurb').on('click', function(e){
 		console.log("blurb clicked");
-		$(".blurbEdit").show();
+	
+		var neww = $(".blurbEdit").css("width");
+  $(this).animate({
+    width: neww
+  }, 200, function() {
+	//$('.blurbEdit').animate ({height: 200;});
+	  $('.blurbEdit').animate({
+    height: 200
+  }, "normal");
+    $(".blurbEdit").fadeIn(300, function() {
+      $('.changeBlurb').hide();
+    }).focus();
+	  
+  });
+		//$(".blurbEdit").show();
 	});
     
 	
@@ -29,9 +44,6 @@ $(document).ready(function() {
 
         }})
 	}});    
-    
-    
-	//Use tinymce later
 
 
 });

@@ -146,8 +146,9 @@ class Session
         while($user = $query->fetch_assoc())
         {
             echo '<div class="result">';
-			echo '<img class="imageresult" src="data:image/jpeg;base64,'.$this->getChatImage($user['id'])['chatimage'].'"></img>';
-			//echo '<div class="usernameresult">'.$user['username'].'</div>';
+			//echo '<img class="imageresult" src="data:image/jpeg;base64,'.$this->getChatImage($user['id'])['chatimage'].'"></img>';
+			echo '<img class="imageresult" src="'.$this->getImage($user['id']).'"/>';
+			
 			echo '<a href ="'.$user['username'].'" class="usernameresult">'.$user['username'].'</a>';
 			echo '<p class = "resultblurb">'.$user['blurb'].'</p>';
 			echo '</div>';
@@ -198,23 +199,116 @@ class Session
 	public function getImage($id)
 	{
 		
-		$sql = new mysqli("localhost","username","password","sqlserver");
-		$img = "SELECT image, image_type FROM sqlserver.imageblob WHERE user_id=".$id;
-		$img=$sql->query($img);
-		$sql->close();
-		$img=$img->fetch_assoc();
-		return $img;
+		$dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+$sql = "SELECT image, image_type FROM imageblob WHERE user_id=".$id; //select most recent image where user id equals id in accounts using DESC and stores in $sql
+   
+/*** prepare the sql ***/
+$stmt = $dbh->prepare($sql);
+/*** exceute the query ***/
+$stmt->execute(); 
+/*** set the fetch mode to associative array ***/
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+/*** set the header for the image ***/
+$array = $stmt->fetch();
+ /*** check we have a single image and type ***/
+ if((sizeof($array) == 2) && empty($array['image']) == false)
+ {
+     
+     $imgdata = $array['image']; //store img src
+	 $src = 'data:image/jpeg;base64,'.$imgdata;
+	 //echo 'There are images';
+ }
+ else
+ {
+	 //echo 'no images';
+	 $src = '../images/noimage3.png';
+
+ }
+		return $src;
 	}
 	
+	function resize_image($file, $w, $h, $crop=FALSE) {
+    list($width, $height) = getimagesize($file);
+    $r = $width / $height;
+    if ($crop) {
+        if ($width > $height) {
+            $width = abs(ceil($width-($width*abs($r-$w/$h))));
+        } else {
+            $height = abs(ceil($height-($height*abs($r-$w/$h))));
+        }
+        $newwidth = $w;
+        $newheight = $h;
+    } else {
+        if ($w/$h > $r) {
+            $newwidth = $h*$r;
+            $newheight = $h;
+        } else {
+            $newheight = $w/$r;
+            $newwidth = $w;
+        }
+    }
+    $src = imagecreatefromjpeg($file);
+    $dst = imagecreatetruecolor($newwidth, $newheight);
+    imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+
+    ob_start();
+imagejpeg( $dst, NULL, 100); // or imagepng( $dst, NULL, 0 );
+$final_image = ob_get_contents();
+ob_end_clean();
+		
+return $final_image;
+}
 	
-	public function getChatImage($id)
+	public function getChatImage($id) //make this like above but resize here
 	{
+		$dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+$sql = "SELECT image, image_type FROM imageblob WHERE user_id=".$id; //select most recent image where user id equals id in accounts using DESC and stores in $sql
+   
+/*** prepare the sql ***/
+$stmt = $dbh->prepare($sql);
+/*** exceute the query ***/
+$stmt->execute(); 
+/*** set the fetch mode to associative array ***/
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+/*** set the header for the image ***/
+$array = $stmt->fetch();
+ /*** check we have a single image and type ***/
+ if((sizeof($array) == 2) && empty($array['image']) == false)
+ {
+     
+     $imgdata = $array['image']; //store img src
+	 
+	 $src = 'data:image/jpeg;base64,'.$imgdata;
+	
+ }
+ else
+ {
+	 //echo 'no images';
+	 $src = '../images/noimage3.png';
+
+ }
+		return $src;
+		
+		
+	} //end of chat image
+	public function getChatImageActual($id) {
 		$sql = new mysqli("localhost","username","password","sqlserver");
 		$img = "SELECT chatimage, image_type FROM sqlserver.imageblob WHERE user_id=".$id;
 		$img=$sql->query($img);
 		$sql->close();
 		$img=$img->fetch_assoc();
-		return $img;
+		if(empty($img['chatimage']) == false)
+		{
+			$src = 'data:image/jpeg;base64,'.$img['chatimage'].'';
+		}else
+		{
+			$src = '../images/noimage3.png';
+		}
+		return $src;
 	}
 		
 }
