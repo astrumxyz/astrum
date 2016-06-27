@@ -13,13 +13,11 @@ $(document).ready(function() {
 		var neww = $(".blurbEdit").css("width");
   $(this).animate({
     width: neww
-  }, 200, function() {
+  }, 300, function() {
 	//$('.blurbEdit').animate ({height: 200;});
-	  $('.blurbEdit').animate({
-    height: 200
-  }, "normal");
-    $(".blurbEdit").fadeIn(300, function() {
-      $('.changeBlurb').hide();
+    $(".blurbEdit").fadeIn(0, function() {
+      $('.changeBlurb').fadeOut(300);
+		 $('.blurbEdit').css('height', '200px');
     }).focus();
 	  
   });

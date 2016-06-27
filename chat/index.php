@@ -77,7 +77,7 @@ echo '<div class="messages" id="messagebox">';
 echo '</div>';
 
 echo '<form class="submitmessage" method="post">';
-echo '<textarea class="messagebox" name="messagebox"></textarea>';
+echo '<textarea class="messagebox" name="messagebox" autofocus="autofocus"></textarea>';
 echo '<input class="button entermessage" type="submit" name="entermessage"></input>';
 echo '</form>';
 echo '</div>';
