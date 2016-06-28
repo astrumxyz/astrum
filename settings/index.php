@@ -96,11 +96,13 @@ echo '<h1>settings</h1>';
     
 //----------------------------------------------
 
+echo '<div class = "circle1">';
 echo '<img class = "userimg" src="'.$src.'"/>';
+echo '</div>';
 
 echo '<form id="uploadimage" action="" method="post" enctype="multipart/form-data">'; 
 
-echo '<div class="upload-button">Edit</div>';
+//echo '<div class="upload-button">Edit</div>';
 echo '<input type="file" name="file" id="file" required />';
 echo '<input type="submit" value="Upload" class="submit" enctype="multipart/form-data" />';
     

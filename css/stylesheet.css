@@ -166,20 +166,31 @@ width: 100px;
 border-radius: 5px;
 border: solid;
 }
+
 .save {
-    display: block;
-    padding: 20px;
-cursor: pointer;
-font-size: 18px;
-text-align: center;
-align-content: center;
-line-height: 0px;
-font-family: "Helvetica Neue",Helvetica,Arial;
-color: #fff;
-height: 26px;
-width: 100px;
-border-radius: 5px;
-border: solid;
+	   display: block;
+	margin: auto;
+	font-family: 'Source Sans Pro', sans-serif;
+	
+ -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+    top: -10px;
+  background-color: white;
+  border: 0;
+  padding: 8px 15px;
+  color: #53e3a6;
+height: 40px;
+  border-radius: 30px;
+  width: 100px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+.save:hover {
+  background-color: #f5f7f9;
 }
 
 .changeBlurb {
@@ -193,7 +204,7 @@ border: solid;
   outline: 0;
   background-color: white;
   border: 0;
-  padding: 10px 15px;
+  padding: 11px 15px;
   color: #53e3a6;
 height: 50px;
   border-radius: 5px;
@@ -206,13 +217,49 @@ height: 50px;
 .changeBlurb:hover {
   background-color: #f5f7f9;
 }
-
-.userimg {
+.circle1 {
+     
+    border-radius: 50%;
+    position: relative;
+    margin: 50px auto 10px auto;
+    
+    height: 200px;
     width: 200px;
+}
+.circle1::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 100px;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.circle1:hover::after {
+    opacity:1;
+content: 'Edit';
+    font-family: "Source Sans Pro";
+    color: #44B592; /**/
+font-size: 25px;
+    padding-top: 46%;
+}
+.userimg {
+    /*width: 200px;
     height: 200px;
     background-position: center center;
     background-size: cover;
-	margin-top: 20px;
+	
+    border-radius: 100px;
+    padding-bottom: 10px;*/
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+.userimg image {
+    width: 200px;
+    height: 200px;
 }
 
 .file-upload, .changeUserBtn, .saveBtn, .submit, #file, .blurbBtn {
@@ -358,7 +405,6 @@ text-align:center;
   -o-transition: .5s ease-in-out;
   transition: .5s ease-in-out;
   cursor: pointer;
-<<<<<<< HEAD
 }
 #menutoggle span {
     
@@ -720,15 +766,16 @@ text-decoration:none;
     letter-spacing: 5px;
 }
 h1 {
+    
     font-family: 'Nova SOLID', sans-serif;
     color: white;
-    font-size: 120px;
+    font-size: 130px;
     line-height: 80px;
     width: 100%;
     top: 10%;
     text-align: center;
     letter-spacing: 5px;
-	margin-top: 50px;
+	margin-top: 70px;
 }
 #userimg {
     height: 200px;
@@ -926,7 +973,8 @@ top: calc(2.5% + 180px);
 left: calc(50% - 100px);
 padding: 20px;
 line-height: 0;
-width: 200px;
+height: 200px;
+    border-radius: 50%;
     background-position: center center;
     background-size: cover;
 	
@@ -974,7 +1022,7 @@ width: 200px;
 
 .saveimage {
 position: absolute;
-top: calc(50% + 180px);
+top: calc(50% + 80px);
 left: calc(50% - 100px);
 padding: 20px;
 line-height: 0;
@@ -1034,7 +1082,7 @@ body :-ms-input-placeholder {
   font-weight: 300;
 }
 .blurbForm {
-  padding: 20px 0;
+  padding: 0px 0;
   position: relative;
   z-index: 2;
 }
@@ -1116,7 +1164,7 @@ body :-ms-input-placeholder {
 }
 
 .changePassForm {
-  padding: 20px 0;
+  padding: 25px 0;
   position: relative;
   z-index: 2;
 }
@@ -1131,7 +1179,7 @@ body :-ms-input-placeholder {
   width: 250px;
   border-radius: 3px;
   padding: 15px 5px;
-  margin: 0 auto 10px auto;
+  margin: 0 auto -5px auto;
   display: block;
   text-align: center;
   font-size: 18px;
@@ -1180,16 +1228,6 @@ body :-ms-input-placeholder {
 	src: url("http://astrum.xyz/css/fonts/nova.ttf");
 	
 }
-/*@import url(http://db.onlinewebfonts.com/c/e2ada776bd0252e6e44e89ea055cad60?family=Nova+SOLID);
-
-@font-face {font-family: "Nova SOLID";
-    src: url("http://db.onlinewebfonts.com/t/e2ada776bd0252e6e44e89ea055cad60.eot");
-    src: url("http://db.onlinewebfonts.com/t/e2ada776bd0252e6e44e89ea055cad60.eot?#iefix") format("embedded-opentype"),
-    url("http://db.onlinewebfonts.com/t/e2ada776bd0252e6e44e89ea055cad60.woff2") format("woff2"),
-    url("http://db.onlinewebfonts.com/t/e2ada776bd0252e6e44e89ea055cad60.woff") format("woff"),
-    url("http://db.onlinewebfonts.com/t/e2ada776bd0252e6e44e89ea055cad60.ttf") format("truetype"),
-    url("http://db.onlinewebfonts.com/t/e2ada776bd0252e6e44e89ea055cad60.svg#Nova SOLID") format("svg");
-}*/
 @font-face {
   font-family: 'Gotham';
   src: url('fonts/Gotham-Thin.eot'); /* IE9 Compat Modes */
@@ -1201,12 +1239,91 @@ body :-ms-input-placeholder {
    font-style: normal;
  }
 
-/*.admin {
-	height: 15px;
-	padding-left: 5px;
-    color: #FFF000;
-}*/
 .adminIco {
 height: 15px;
 	padding-left: 5px;	
 }
+/*pm stuff-------------------------------------------*/
+
+.message-body{
+	display: block;
+	height: 600px;
+	width: 70%;
+	margin:0px auto;
+	border:1px solid #ccc;
+}
+.message-left{
+	display: block;
+	height: 100%;
+	width: 30%;
+	float: left;
+	overflow-y: scroll;
+	border-right: 1px solid #ccc;
+}
+.message-right{
+	display: block;
+	height: 100%;
+	width: 70%;
+	float: left;
+}
+.message-left ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+.message-left ul a{
+	text-decoration: none;
+}
+.message-left ul a li{
+	padding: 5px;
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+	color: black;
+}
+.message-left ul a li img{
+	height: 50px;
+	width: 50px;
+}
+.message-left ul a li:hover{
+	background: #EBEDF5;
+}
+.message-left ul a li.active{
+	background: #6B83B3;
+}
+.message-right .display-message{
+	display: block;
+	height: 80%;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
+	overflow-y:scroll;
+}
+.message-right .send-message{
+	height: 20%;
+	background: #eee;
+	padding: 10px;
+}
+.display-message .message{
+	min-height: 60px;
+	padding: 5px;
+}
+.message .img-con{
+	width: 10%;
+	float: left;
+	height: inherit;
+}
+.message .img-con > img{
+	height: 50px;
+	width: 50px;
+}
+.message .text-con{
+	width: 90%;
+	float: left;
+	height: inherit;
+}
+hr{
+	margin-top: 0;
+	margin-bottom: 0;
+	border-top:1px solid #ccc;
+}
+/*pm stuff-------------------------------------------*/

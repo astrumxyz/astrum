@@ -1,6 +1,8 @@
 $(document).ready(function (e) {
+    
+    $('.save').hide()
     //To transfer clicks to divs
-     $(".upload-button").on('click', function() {
+     $(".circle1").on('click', function() {
        $("#file").click();
     });
     $(".save").on('click', function() {
@@ -53,5 +55,12 @@ $(document).ready(function (e) {
 		$('.userimg').attr('src', e.target.result);
 		$('.userimg').attr('width', '250px');
 		$('.userimg').attr('height', '230px');
+            
+        $('.save').show();
+        //$('.save').animate {width: 100};
+        $('.save').animate({
+    width: 100
+  });
+            
 		};
 });
