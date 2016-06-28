@@ -158,7 +158,9 @@ $array = $stmt->fetch();
 
  }
 
-echo '<img class = "profileimage" src="'.$src.'"/>';
+		
+echo '<div class = "profileimage">';
+echo '<img src="'.$src.'"/></div>';
 echo '<p class = statHeader>Status: '.$status.'</p>';		
 		
 echo '<h3>Date Joined</h3>';
