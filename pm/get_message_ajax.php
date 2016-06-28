@@ -1,5 +1,10 @@
 <?php
+
     require_once("connect.php");
+include("../php/Session.class.php");
+$sess = new Session();
+$sess->Init();
+
     if(isset($_GET['c_id'])){
         //get the conversation id and
         $conversation_id = base64_decode($_GET['c_id']);
@@ -20,13 +25,14 @@
                 //$user_form_img = $user_fetch['img'];
 
                 //display the message
+                //sub in <img class='chatimg' src='".$sess->getChatImageActual(3)."'/>
                 echo "
                             <div class='message'>
                                 <div class='img-con'>
-                                    <img src=''>
+                                    <img class='chatimg' src='../images/noimage3.png'/>
                                 </div>
                                 <div class='text-con'>
-                                    <a href='#''>{$user_form_username}</a>
+                                    <a href='#''>{$user_form_username} : </a>
                                     <p>{$message}</p>
                                 </div>
                             </div>

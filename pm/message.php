@@ -31,7 +31,7 @@ header('Location: ../');
 <html>
 <head>
 	<title>Direct Message</title>
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	
     <link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
 	<link rel="icon" type = "image/x-icon" href="../favicon2.ico" />
 	<script type="text/javascript" src="../js/jquery.js"></script>
@@ -40,19 +40,62 @@ header('Location: ../');
     <script type='text/javascript' src='../js/chat.js'></script>
 </head>
 <body>
+    <?php 
+echo '<div class="header">';
+echo '<div id="menutoggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>';
+echo '<p class= "title">ASTRUM.XYZ</p>';
+echo '</div>';
+echo '<div class="menubar">';
+    
+echo '<nav class="circle">';    
+echo '<ul>';
+echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'.$account['username'].'</a></li>';
+echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/chat">chat</a></li>';
+echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/settings">settings</a></li>';
+echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/users">users</a></li>';
+echo '</ul>';
+    
+echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
+echo'</div>';
+echo '<div class="wrapperpm">';
+//echo '<h1>direct message</h1>';
+?>
 	
 	<div class="message-body">
 		<div class="message-left">
 			<ul>
 				<?php
-					//show all the users expect me
-                $dbh = mysqli_connect("localhost","username","password","sqlserver");
+//
+echo '<form class="usersearchpm" method="post"><input class="searchbarpm" name="searchbarpm"></input></form>';
+//display user currently chatting with
+    $con = mysqli_connect("localhost","username","password","sqlserver");
+				//check $_GET['id'] is set
+				if(isset($_GET['id'])){
+					$user_two = trim(mysqli_real_escape_string($con, $_GET['id']));
+					//check $user_two is valid
+					$q = mysqli_query($con, "SELECT * FROM `accounts` WHERE id='$user_two' AND id!='$user_id'");
+                    $second = mysqli_fetch_assoc($q);
+                    //echo $q['username'];
+                    echo "<a href='message.php?id={$second['id']}'><li> {$second['username']}</li></a>";
                     
-					$q = mysqli_query($dbh, "SELECT * FROM `accounts` WHERE id!='$user_id'");
+if(isset($_POST['searchbarpm'])){
+//$sess->getUsers();
+    $dbh = mysqli_connect("localhost","username","password","sqlserver");
+                    $query = $_POST['searchbarpm'];
+					$q = mysqli_query($dbh, "SELECT * FROM sqlserver.accounts WHERE username LIKE '%".$query."%'");
 					//display all the results
 					while($row = mysqli_fetch_assoc($q)){
+                        if($row['id']!= $user_id && $row['id']!= $second['id']) {
 						echo "<a href='message.php?id={$row['id']}'><li> {$row['username']}</li></a>";
+                        }
 					}
+                }
+}//
+
 				?>
 			</ul>
 		</div>
@@ -100,15 +143,21 @@ header('Location: ../');
 				<input type="hidden" id="user_form" value="<?php echo base64_encode($user_id); ?>">
 				<input type="hidden" id="user_to" value="<?php echo base64_encode($user_two); ?>">
 				<div class="form-group">
-					<textarea class="form-control" id="message" placeholder="Enter Your Message"></textarea>
-				</div>
-				<button class="btn btn-primary" id="reply">Submit</button> 
+<!--
+					echo '<form class="submitmessage" method="post">';
+echo '<textarea class="messagebox" name="messagebox" autofocus="autofocus"></textarea>';
+echo '<input class="button entermessage" type="submit" name="entermessage"></input>';
+echo '</form>';
+
+-->
+                    <textarea class="form-control" id="message" autofocus="autofocus"></textarea>
+<input class="button btn-primary" id="reply" type="Submit"></input>
 				<span id="error"></span>
 			</div>
 			<!-- / send message -->
 		</div>
 	</div>
-	
+	</div>
 	<script type="text/javascript" src="pm.js"></script>	
 </body>
 </html>

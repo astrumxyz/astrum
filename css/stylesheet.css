@@ -798,6 +798,21 @@ h1 {
     z-index: -1;
 	text-align: center;
 }
+.wrapperpm {
+    
+    background: #50a3a2;
+    background: -webkit-linear-gradient(bottom, #50a3a2 0%, #53e3a6 100%);
+    background: linear-gradient(to top, #50a3a2 0%, #53e3a6 100%);
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-top: 0px;
+    overflow: hidden;
+    z-index: -1;
+	text-align: center;
+}
 
 .usersearch {
     position: absolute;
@@ -806,7 +821,30 @@ h1 {
     width: 40%;
     height: 20px;
 }
-
+.usersearchpm {
+    width: 100%;
+    height: 40px;
+    
+}
+.searchbarpm {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    height: 100%;
+    border: 3px solid rgba(255, 255, 255, .4);
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    border-radius: 3px;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    font-weight: 300;
+    float: left;
+}
 .searchbar {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -1248,25 +1286,30 @@ height: 15px;
 /*pm stuff-------------------------------------------*/
 
 .message-body{
+    padding-top: 18px;
 	display: block;
-	height: 600px;
-	width: 70%;
-	margin:0px auto;
-	border:1px solid #ccc;
+	height: 100%;
+	width: 100%;
+	margin:20px auto;
+    overflow: hidden;
+	
 }
 .message-left{
 	display: block;
 	height: 100%;
-	width: 30%;
+    background: #50a3a2;
+	width: 20%;
 	float: left;
 	overflow-y: scroll;
-	border-right: 1px solid #ccc;
+	
+    z-index: 2;
 }
 .message-right{
 	display: block;
 	height: 100%;
-	width: 70%;
+	width: 80%;
 	float: left;
+    
 }
 .message-left ul{
 	list-style: none;
@@ -1277,55 +1320,107 @@ height: 15px;
 .message-left ul a{
 	text-decoration: none;
 }
+.userMessage {
+    color: white;
+    font-family: 'Nova SOLID', 'sans-serif';
+    font-size: 90px;
+    padding-top: 290px;
+    text-align: center;
+}
 .message-left ul a li{
 	padding: 5px;
-	border-bottom: 1px solid #ccc;
-	font-weight: bold;
-	color: black;
+	border-bottom: 1px solid rgba(255, 255, 255, .4);
+	text-align: left;
+    font-size: 16px;
+    font-family: "Source Sans Pro";
+	color: white;
 }
 .message-left ul a li img{
 	height: 50px;
 	width: 50px;
 }
 .message-left ul a li:hover{
-	background: #EBEDF5;
+	background: #9DCAC8;
+    color: white;
 }
 .message-left ul a li.active{
-	background: #6B83B3;
+	background: #f5f7f9;
 }
 .message-right .display-message{
 	display: block;
-	height: 80%;
+	height: 84%;
 	width: 100%;
-	border-bottom: 1px solid #ccc;
+    text-align: left;
 	overflow-y:scroll;
 }
 .message-right .send-message{
-	height: 20%;
-	background: #eee;
-	padding: 10px;
+	height: 16%;
+	background: #53e3a6;
+	padding: 0px;
 }
 .display-message .message{
-	min-height: 60px;
+	min-height: 30px;
 	padding: 5px;
+    color: white;
+    font-family: "Source Sans Pro";
+    font-size: 18px;
+    border-bottom: none;
+}
+.display-message .message {
+    text-decoration: none;
+    border: none !important;
 }
 .message .img-con{
-	width: 10%;
+	border: none !important;
 	float: left;
 	height: inherit;
 }
 .message .img-con > img{
-	height: 50px;
-	width: 50px;
+	height: 30px;
+	width: 30px;
+    border-radius: 50%;
 }
 .message .text-con{
-	width: 90%;
+	border: none !important;
 	float: left;
-	height: inherit;
+    left: 5px;
+	display: inline;
+    text-decoration: none;
 }
+.message .text-con a{ 
+    text-decoration: none;
+    left: 5px;
+    color: white;
+    border: none !important;
+}
+.message .text-con p {
+    display: inline;
+   border: none !important;
+}
+
 hr{
-	margin-top: 0;
+	
 	margin-bottom: 0;
-	border-top:1px solid #ccc;
+    border: none !important;
+	
+}
+.btn-primary {
+border-radius:0px;
+height:14%;
+    margin-top: 0px;
+width:120px;
+right:0px;
+    line-height: 15px;
+position:absolute;
+}
+
+.btn-primary:hover {
+	 background-color: #f5f7f9;
+}
+.form-control {
+    margin: 10px 10px 10px;
+    width: calc(100% - 140px);
+float: left;
+height: 80px;
 }
 /*pm stuff-------------------------------------------*/
