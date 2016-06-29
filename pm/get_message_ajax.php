@@ -19,7 +19,7 @@ $sess->Init();
                 $message = $m['message'];
 
                 //get name and image of $user_form from `user` table
-                $user = mysqli_query($con, "SELECT username FROM `accounts` WHERE id='$user_form'");
+                $user = mysqli_query($con, "SELECT * FROM `accounts` WHERE id='$user_form'");
                 $user_fetch = mysqli_fetch_assoc($user);
                 $user_form_username = $user_fetch['username'];
                 //$user_form_img = $user_fetch['img'];
@@ -29,7 +29,7 @@ $sess->Init();
                 echo "
                             <div class='message'>
                                 <div class='img-con'>
-                                    <img class='chatimg' src='../images/noimage3.png'/>
+                                    <img class='chatimg' src='".$sess->getChatImageActual($user_fetch['id'])."'/>
                                 </div>
                                 <div class='text-con'>
                                     <a href='#''>{$user_form_username} : </a>
@@ -40,7 +40,7 @@ $sess->Init();
 
             }
         }else{
-            echo "No Messages";
+            echo '<p class ="userMessage">No Messages</p>';
         }
     }
 

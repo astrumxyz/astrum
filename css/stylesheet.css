@@ -1284,13 +1284,23 @@ height: 15px;
 	padding-left: 5px;	
 }
 /*pm stuff-------------------------------------------*/
+.dmCircle {
+	height: 6px;
+	width: 6px;
+	margin-top: 1px;
+	margin-bottom: 3px;
+	margin-left: 1px;
+	margin-right: 5px;
+	display: inline;
+}
 
 .message-body{
+	right: 0px;
     padding-top: 18px;
 	display: block;
 	height: 100%;
 	width: 100%;
-	margin:20px auto;
+	margin-top:20px;
     overflow: hidden;
 	
 }
@@ -1315,6 +1325,7 @@ height: 15px;
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	padding-bottom: 20px;
 	width: 100%;
 }
 .message-left ul a{
@@ -1335,10 +1346,15 @@ height: 15px;
     font-family: "Source Sans Pro";
 	color: white;
 }
+/*
 .message-left ul a li img{
-	height: 50px;
-	width: 50px;
+	height: 4px;
+	width: 4px;
+	display: inline;
+	overflow: hidden;
+	padding-top: 5px;
 }
+*/
 .message-left ul a li:hover{
 	background: #9DCAC8;
     color: white;

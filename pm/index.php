@@ -57,6 +57,7 @@ echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'
 echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/chat">chat</a></li>';
 echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/settings">settings</a></li>';
 echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/users">users</a></li>';
+echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/pm">DM</a></li>';
 echo '</ul>';
     
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
@@ -68,8 +69,8 @@ echo '<div class="wrapperpm">';
 		<div class="message-left">
 			<ul>
 				<?php
-//
-echo '<form class="usersearchpm" method="post"><input class="searchbarpm" name="searchbarpm"></input></form>';
+				
+				echo '<form class="usersearchpm" method="post"><input class="searchbarpm" name="searchbarpm"></input></form>';
 if(isset($_POST['searchbarpm'])){
 //$sess->getUsers();
     $dbh = mysqli_connect("localhost","username","password","sqlserver");
@@ -77,11 +78,26 @@ if(isset($_POST['searchbarpm'])){
 					$q = mysqli_query($dbh, "SELECT * FROM sqlserver.accounts WHERE username LIKE '%".$query."%'");
 					//display all the results
 					while($row = mysqli_fetch_assoc($q)){
-                        if($row['id']!= $user_id) {
-						echo "<a href='message.php?id={$row['id']}'><li> {$row['username']}</li></a>";
+                        if($row['id']!= $user_id) { //only output users they dont have convo going with because theyre already printed!!!
+						echo "<a href='message.php?id={$row['id']}'><li><img class = 'dmCircle' src = '../images/noChatCircle.png'/> {$row['username']}</li></a>";
                         }
 					}
 }//
+				
+				$con = mysqli_connect("localhost","username","password","sqlserver");
+				
+                    //$num = mysqli_query($con, "SELECT * FROM `pm_messages` WHERE user_from=".$account['id']."");
+				$numCon = mysqli_query($con, "SELECT * FROM `conversation` WHERE user_one=".$account['id']."");
+					$numrows = mysqli_num_rows($numCon);
+				while ($u = mysqli_fetch_assoc($numCon))
+					{
+					//get other users usernames to echo link
+	$getUserTwo = mysqli_query($con, "SELECT * FROM `accounts` WHERE id=".$u['user_two']."");
+		$s = mysqli_fetch_assoc($getUserTwo);
+					//echo $s['username'];
+					echo "<a href='message.php?id={$s['id']}'><li><img class = 'dmCircle' src = '../images/chatCircle.png'/>{$s['username']} </li></a>";
+				}
+				
 
 				?>
 			</ul>

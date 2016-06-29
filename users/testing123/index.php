@@ -58,6 +58,7 @@ echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'
 echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/chat">chat</a></li>';
 echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/settings">settings</a></li>';
 echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/users">users</a></li>';
+	echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/pm">dm</a></li>';
 echo '</ul>';
     
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';

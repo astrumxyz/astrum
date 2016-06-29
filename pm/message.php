@@ -57,6 +57,8 @@ echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/home">'
 echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/chat">chat</a></li>';
 echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/settings">settings</a></li>';
 echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/users">users</a></li>';
+echo '<li class="menubutton"><a class="menutext" href="http://astrum.xyz/pm">dm</a></li>';	
+
 echo '</ul>';
     
 echo '<form class="logoutframe" method="post" id="logout"><input class="logout" type="submit" name="logout" value="logout"></input></form>';
@@ -80,7 +82,7 @@ echo '<form class="usersearchpm" method="post"><input class="searchbarpm" name="
 					$q = mysqli_query($con, "SELECT * FROM `accounts` WHERE id='$user_two' AND id!='$user_id'");
                     $second = mysqli_fetch_assoc($q);
                     //echo $q['username'];
-                    echo "<a href='message.php?id={$second['id']}'><li> {$second['username']}</li></a>";
+                    echo "<a href='message.php?id={$second['id']}'><li><img class = 'dmCircle' src = '../images/chatCircle.png'/> {$second['username']}</li></a>";
                     
 if(isset($_POST['searchbarpm'])){
 //$sess->getUsers();
@@ -90,7 +92,7 @@ if(isset($_POST['searchbarpm'])){
 					//display all the results
 					while($row = mysqli_fetch_assoc($q)){
                         if($row['id']!= $user_id && $row['id']!= $second['id']) {
-						echo "<a href='message.php?id={$row['id']}'><li> {$row['username']}</li></a>";
+						echo "<a href='message.php?id={$row['id']}'><li><img class = 'dmCircle' src = '../images/noChatCircle.png'/> {$row['username']}</li></a>";
                         }
 					}
                 }
