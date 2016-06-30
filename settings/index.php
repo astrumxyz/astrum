@@ -139,11 +139,19 @@ echo '<form class="statusForm" action="" method="post" enctype="multipart/form-d
         <li class="clickSlide">
         <div>Set Your Status</div>
             <ul>
-                <li><a href="#">1</a></li>
-                <li><a href="#">Web builder</a></li>
-                <li><a href="#">Themes</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link1=<?=$uniqid?>">Chipper</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link2=<?=$uniqid?>">Bored</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link3=<?=$uniqid?>">Depressed</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link4=<?=$uniqid?>">Tired</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link5=<?=$uniqid?>">Hungry</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link6=<?=$uniqid?>">Lonely</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link7=<?=$uniqid?>">Social</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link8=<?=$uniqid?>">Irritated</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link9=<?=$uniqid?>">Ecstatic</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link10=<?=$uniqid?>">Angry</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link11=<?=$uniqid?>">Pretty good</a></li>
             </ul>
-        </li>';
+        </li></ul>';
     
 echo '</form>';	
 	

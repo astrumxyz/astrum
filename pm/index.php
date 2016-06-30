@@ -142,6 +142,7 @@ echo '<div class="wrapperpm">';
 							//start a new converstaion and fetch its id
 							$q = mysqli_query($con, "INSERT INTO `conversation` VALUES ('','$user_id',$user_two)");
 							$conversation_id = mysqli_insert_id($con);
+                            
 						}
 					}else{
 						die("Invalid $_GET ID.");

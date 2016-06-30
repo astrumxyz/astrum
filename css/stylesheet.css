@@ -231,6 +231,7 @@ height: 50px;
   
 	padding-top: 11px;
 	padding-bottom: 10px;
+    margin-bottom: 20px;
   color: white;
 height: 50px;
   border-radius: 3px;
@@ -255,15 +256,22 @@ height: 50px;
 	
 	
 }
+.status ul {
+    padding-bottom: 10px;
+}
 .status li div {
-	padding-bottom: 10px;
+	padding-bottom: 14px;
 	text-align: center;
 }
-.status li a { display: block; 
+.status li a { 
+    text-indent: 50px;
+    display: block; 
 	width: 250px;
 color: white;
-	height: 50px;
+	height: 35px;
 	font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    text-align: left;
 	
  -webkit-appearance: none;
      -moz-appearance: none;
@@ -271,27 +279,26 @@ color: white;
   outline: 0;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
   background-color: rgba(255, 255, 255, 0.1);
-	  text-align: center;
+	  
 	position: relative;
-	left: 0;
-	margin-right: 10px;
+	padding-top: 6px;
+	text-decoration: none;
 }
 
-.status li a,visited{ 
+.status li a:visited{ 
 display: block; 
-padding: 15px; 
-
+ 
+background-color: rgba(255, 255, 255, 0.2);
 text-decoration: none;
-text-align: center;
+
     transition: all .1s ease-in-out;
     -o-transition: all .1s ease-in-out;
     -webkit-transition: all .1s ease-in-out;
     -moz-transition: all .1s ease-in-out;
 }
-.status li a:hover{ color: #F46F4F; }
+.status li a:hover{ 
+background-color: rgba(255, 255, 255, 0.2);}
 
-.dropdown-active{  }
-.dropdown-active a,visited{ color: #F46F4F; }
 
 .status li{ display: block; }
 
@@ -1210,6 +1217,7 @@ body :-ms-input-placeholder {
   padding: 20px 0;
   position: relative;
   z-index: 2;
+    
 }
 
 .blurbForm input {
