@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Astrum</title>
+	<title>Astrum settings</title>
 	<link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
 	<link rel="icon" type = "image/x-icon" href="../favicon2.ico" />	
 	<script type="text/javascript" src="../js/jquery.js"></script>
@@ -33,6 +33,15 @@ else //user is signed in with valid cookie
 if(isset($_POST['logout'])){
      $sess->Logout($account['username']);
 }
+	//update last seen
+	$sql2 = new mysqli("localhost","username","password","sqlserver");
+		$stat = "UPDATE sqlserver.accounts SET status = 'online' WHERE username='".$account['username']."'";
+		$stat = $sql2->query($stat);
+		
+		$t = "UPDATE sqlserver.accounts SET lastOnline = now() WHERE username='".$account['username']."'"; //may have to switch to mktime();
+		$t = $sql2->query($t);
+		$sql2->close();
+	
 $dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
@@ -63,7 +72,7 @@ $array = $stmt->fetch();
 	
 	//blurb 
 	$sql = new mysqli("localhost","username","password","sqlserver");
-		$id = "SELECT id, blurb, password FROM sqlserver.accounts WHERE username ='".$account['username']."'";
+		$id = "SELECT * FROM sqlserver.accounts WHERE username ='".$account['username']."'";
 		//echo $id;
 		//$id = "SELECT id FROM sqlserver.accounts WHERE username =";
 		$id=$sql->query($id);
@@ -125,7 +134,16 @@ echo '<div class="blurbBtn" method="post"></div>';
 echo '<textarea class = "blurbEdit" method = "post" name="blurbEdit" rows="8" cols="50">'.$id['blurb'].'</textarea>';
     
 echo '</form>';
-	
+echo '<form class="statusForm" action="" method="post" enctype="multipart/form-data">';
+echo '<div class="changeStatus">Set Your Status</div>';
+echo '<div class="statusBtn" method="post"></div>';
+echo '<ul class="dropDown">
+<li><a href="#">1</a></li>
+<li><a href="#">2</a></li>
+<li><a href="#">3</a></li>
+</ul>';
+    
+echo '</form>';	
 	
 echo '</div>';
 //----------------------------------------------------  

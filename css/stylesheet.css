@@ -202,12 +202,12 @@ height: 40px;
      -moz-appearance: none;
           appearance: none;
   outline: 0;
-  background-color: white;
-  border: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
   padding: 11px 15px;
-  color: #53e3a6;
+  color: white;
 height: 50px;
-  border-radius: 5px;
+  border-radius: 3px;
   width: 250px;
   cursor: pointer;
   font-size: 18px;
@@ -215,7 +215,67 @@ height: 50px;
           transition-duration: 0.25s;
 }
 .changeBlurb:hover {
-  background-color: #f5f7f9;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.changeStatus {
+	   display: block;
+	margin: auto;
+	font-family: 'Source Sans Pro', sans-serif;
+	
+ -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 11px 15px;
+  color: white;
+height: 50px;
+  border-radius: 3px;
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+}
+.changeStatus:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.dropDown {
+	 display: block;
+	margin: auto;
+	font-family: 'Source Sans Pro', sans-serif;
+	
+ -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: 0;
+ 
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 11px 15px;
+  color: white;
+height: 30px;
+ 
+  width: 250px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+	text-decoration: none;
+}
+.dropDown:hover {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.dropDown a {
+	text-decoration: none;
+	color: white;
+}
+
+.dropDown > li {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	
 }
 .circle1 {
      
@@ -230,7 +290,8 @@ height: 50px;
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(255, 255, 255, 0.8);
+  background: #9fe0c9;
+border: 1px solid #9fe0c9;
   border-radius: 100px;
   display: block;
   opacity: 0;
@@ -241,7 +302,7 @@ height: 50px;
     opacity:1;
 content: 'Edit';
     font-family: "Source Sans Pro";
-    color: #50a3a2; /*#50a3a2*/
+    color: white; /*#50a3a2*/
 font-size: 25px;
     padding-top: 46%;
 }
@@ -262,7 +323,7 @@ font-size: 25px;
     height: 200px;
 }
 
-.file-upload, .changeUserBtn, .saveBtn, .submit, #file, .blurbBtn {
+.file-upload, .changeUserBtn, .saveBtn, .submit, #file, .blurbBtn, .statusBtn {
     display: none;
 }
 
@@ -1123,6 +1184,11 @@ body :-ms-input-placeholder {
 }
 .blurbForm {
   padding: 0px 0;
+  position: relative;
+  z-index: 2;
+}
+.statusForm {
+  padding: 20px 0;
   position: relative;
   z-index: 2;
 }

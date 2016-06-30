@@ -36,6 +36,15 @@ else //user is signed in with valid cookie
 if(isset($_POST['logout'])){
     $sess->Logout($account['username']);
 }
+	
+	//update last seen
+	$sql2 = new mysqli("localhost","username","password","sqlserver");
+		$stat = "UPDATE sqlserver.accounts SET status = 'online' WHERE username='".$account['username']."'";
+		$stat = $sql2->query($stat);
+		
+		$t = "UPDATE sqlserver.accounts SET lastOnline = now() WHERE username='".$account['username']."'"; //may have to switch to mktime();
+		$t = $sql2->query($t);
+		$sql2->close();
 
 echo '<div class="header">';
 //echo '<img id="menutoggle" src="../images/menuiconwhite.png"></img>';

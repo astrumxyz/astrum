@@ -43,6 +43,16 @@ else //user is signed in with valid cookie
 if(isset($_POST['logout'])){
 	 $sess->Logout($account['username']);
 }
+	
+	//update last seen
+	$sql2 = new mysqli("localhost","username","password","sqlserver");
+		$stat = "UPDATE sqlserver.accounts SET status = 'online' WHERE username='".$account['username']."'";
+		$stat = $sql2->query($stat);
+		
+		$t = "UPDATE sqlserver.accounts SET lastOnline = now() WHERE username='".$account['username']."'"; //may have to switch to mktime();
+		$t = $sql2->query($t);
+		$sql2->close();
+	
 echo '<div class="header">';
 echo '<div id="menutoggle">
   <span></span>
@@ -103,10 +113,16 @@ $sql = new mysqli("localhost","username","password","sqlserver");
 			$blurb = "They haven't told us anything yet!";
 		}
 		
+		//sql for status update
+		$sql = new mysqli("localhost","username","password","sqlserver");
+		
 		$status = $id['status'];
 		if($status == null)
 		{
 			$status = "offline";
+			$stat = "UPDATE sqlserver.accounts SET status = 'offline' WHERE username='".$username."'";
+		$stat = $sql->query($stat);
+			
 		}
 		
 		$time = (string) $id['lastOnline'];
@@ -115,16 +131,20 @@ $sql = new mysqli("localhost","username","password","sqlserver");
 		
 		$current = mktime();
 		$elapsed = strtotime($time);
-		//echo $time;
-		//echo $elapsed.'   ';
-		
-		//echo $current.'  ';
-		
-		//echo $current-$elapsed;
-		if($current-$elapsed >= 72000 && $status == "online")
+
+		//update status to display
+		if(($current-$elapsed >= 32000 && $current-$elapsed <= 72000) && ($status == "online" || $status == "away"))
 		{
 			//over 2 hrs
+			$stat2 = "UPDATE sqlserver.accounts SET status = 'away' WHERE username='".$username."'";
+		$stat2 = $sql->query($stat2);
 			$status = "away";
+		}
+		elseif ($current-$elapsed >= 72000 && ($status == "online" || $status == "away"))
+		{
+			$status = "offline";
+			$stat3 = "UPDATE sqlserver.accounts SET status = 'offline' WHERE username='".$username."'";
+		$stat3 = $sql->query($stat3);
 		}
 		
 //Image		
@@ -162,7 +182,7 @@ $array = $stmt->fetch();
 		
 echo '<div class = "profileimage">';
 echo '<img src="'.$src.'"/></div>';
-echo '<p class = statHeader>Status: '.$status.'</p>';		
+echo '<p class = statHeader>Activity: '.$status.'</p>';		
 		
 echo '<h3>Date Joined</h3>';
 echo '<p class = profiletxt>'.$mnth." ".$day." ".$yr.'</p>';

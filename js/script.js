@@ -75,3 +75,14 @@ $(document).ready(function() {
 $(window).resize(function() {
 autoSizeText();
 });
+
+//for status change
+//$(window).bind('unload', function(){
+//            $.ajax({
+//            type: 'POST',
+//            async: false,
+//            url: '../php/updatestatus.php',
+//			data: {action: 'test'}
+//
+//            });
+//        });

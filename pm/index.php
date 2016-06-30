@@ -41,6 +41,15 @@ header('Location: ../');
 </head>
 <body>
     <?php 
+	//update last seen
+	$sql2 = new mysqli("localhost","username","password","sqlserver");
+		$stat = "UPDATE sqlserver.accounts SET status = 'online' WHERE username='".$account['username']."'";
+		$stat = $sql2->query($stat);
+		
+		$t = "UPDATE sqlserver.accounts SET lastOnline = now() WHERE username='".$account['username']."'"; //may have to switch to mktime();
+		$t = $sql2->query($t);
+		$sql2->close();
+	
 echo '<div class="header">';
 echo '<div id="menutoggle">
   <span></span>
@@ -71,19 +80,6 @@ echo '<div class="wrapperpm">';
 				<?php
 				
 				echo '<form class="usersearchpm" method="post"><input class="searchbarpm" name="searchbarpm"></input></form>';
-if(isset($_POST['searchbarpm'])){
-//$sess->getUsers();
-    $dbh = mysqli_connect("localhost","username","password","sqlserver");
-                    $query = $_POST['searchbarpm'];
-					$q = mysqli_query($dbh, "SELECT * FROM sqlserver.accounts WHERE username LIKE '%".$query."%'");
-					//display all the results
-					while($row = mysqli_fetch_assoc($q)){
-                        if($row['id']!= $user_id) { //only output users they dont have convo going with because theyre already printed!!!
-						echo "<a href='message.php?id={$row['id']}'><li><img class = 'dmCircle' src = '../images/noChatCircle.png'/> {$row['username']}</li></a>";
-                        }
-					}
-}//
-				
 				$con = mysqli_connect("localhost","username","password","sqlserver");
 				
                     //$num = mysqli_query($con, "SELECT * FROM `pm_messages` WHERE user_from=".$account['id']."");
@@ -95,10 +91,29 @@ if(isset($_POST['searchbarpm'])){
 	$getUserTwo = mysqli_query($con, "SELECT * FROM `accounts` WHERE id=".$u['user_two']."");
 		$s = mysqli_fetch_assoc($getUserTwo);
 					//echo $s['username'];
+					
+					if(isset($_POST['searchbarpm'])){
+//$sess->getUsers();
+    $dbh = mysqli_connect("localhost","username","password","sqlserver");
+                    $query = $_POST['searchbarpm'];
+					$q = mysqli_query($dbh, "SELECT * FROM sqlserver.accounts WHERE username LIKE '%".$query."%'");
+					//display all the results
+					while($row = mysqli_fetch_assoc($q)){
+						
+							
+                        if($row['id']!= $user_id && $row['id']!=$s['id']) { //only output users they dont have convo going with because theyre already printed!!!
+						echo "<a href='message.php?id={$row['id']}'><li><img class = 'dmCircle' src = '../images/noChatCircle.png'/> {$row['username']}</li></a>";
+                        }
+					}
+}
+					else {
+					
+					
 					echo "<a href='message.php?id={$s['id']}'><li><img class = 'dmCircle' src = '../images/chatCircle.png'/>{$s['username']} </li></a>";
-				}
+					}
+				}//
 				
-
+			
 				?>
 			</ul>
 		</div>

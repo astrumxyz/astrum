@@ -43,12 +43,14 @@ if(isset($_POST['entermessage']) || isset($_POST['messagebox'])){
 	$sess->EnterMessage($account);
 }
 
-/*echo '<div class="menu">';
-echo '<div class="menutext">'.$account['username'].'</div>';
-echo '<div class="menubutton">chat</div>';
-
-echo '<form class="menubutton logoutframe" method="post"><input class="logout logoutbutton" type="submit" name="logout" value="logout"></input></form>';
-echo '</div>';*/
+//update last seen
+	$sql2 = new mysqli("localhost","username","password","sqlserver");
+		$stat = "UPDATE sqlserver.accounts SET status = 'online' WHERE username='".$account['username']."'";
+		$stat = $sql2->query($stat);
+		
+		$t = "UPDATE sqlserver.accounts SET lastOnline = mktime() WHERE username='".$account['username']."'"; //may have to switch to mktime();
+		$t = $sql2->query($t);
+		$sql2->close();
 
 echo '<div class="header">';
 echo '<div id="menutoggle">
