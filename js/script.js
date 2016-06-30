@@ -33,6 +33,13 @@ autoSizeText = function() {
 $(document).ready(function() {
     console.log("LOADED SCRIPT.JS");
 	
+	// NAV TOGGLE ONCLICK WITH SLIDE
+    $(".clickSlide ul").hide();
+    $(".status").click(function(){
+        $('.clickSlide').children("ul").stop(true,true).slideToggle("fast"),
+        $(this).toggleClass("dropdown-active");
+    });
+	
 	//expand creds
 	$(".about").mouseover(function () {
         $(this).text("Zac Hardy & Skylar Thomas");

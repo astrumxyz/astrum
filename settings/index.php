@@ -135,13 +135,15 @@ echo '<textarea class = "blurbEdit" method = "post" name="blurbEdit" rows="8" co
     
 echo '</form>';
 echo '<form class="statusForm" action="" method="post" enctype="multipart/form-data">';
-echo '<div class="changeStatus">Set Your Status</div>';
-echo '<div class="statusBtn" method="post"></div>';
-echo '<ul class="dropDown">
-<li><a href="#">1</a></li>
-<li><a href="#">2</a></li>
-<li><a href="#">3</a></li>
-</ul>';
+ echo '<ul class = "status"> 
+        <li class="clickSlide">
+        <div>Set Your Status</div>
+            <ul>
+                <li><a href="#">1</a></li>
+                <li><a href="#">Web builder</a></li>
+                <li><a href="#">Themes</a></li>
+            </ul>
+        </li>';
     
 echo '</form>';	
 	

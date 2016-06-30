@@ -217,7 +217,7 @@ height: 50px;
 .changeBlurb:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-.changeStatus {
+.status {
 	   display: block;
 	margin: auto;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -228,55 +228,74 @@ height: 50px;
   outline: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
   background-color: rgba(255, 255, 255, 0.2);
-  padding: 11px 15px;
+  
+	padding-top: 11px;
+	padding-bottom: 10px;
   color: white;
 height: 50px;
   border-radius: 3px;
+	text-align: center;
   width: 250px;
   cursor: pointer;
   font-size: 18px;
   -webkit-transition-duration: 0.25s;
           transition-duration: 0.25s;
+	list-style-type: none;
+	
 }
-.changeStatus:hover {
+.status:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
-.dropDown {
-	 display: block;
-	margin: auto;
+
+/*.status { list-style-type: none; padding: 0; margin: 0; }*/
+.status li {
+	display: block; 
+	width: 250px;
+	text-align: center;
+	
+	
+}
+.status li div {
+	padding-bottom: 10px;
+	text-align: center;
+}
+.status li a { display: block; 
+	width: 250px;
+color: white;
+	height: 50px;
 	font-family: 'Source Sans Pro', sans-serif;
 	
  -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
   outline: 0;
- 
-  background-color: rgba(255, 255, 255, 0.4);
-  padding: 11px 15px;
-  color: white;
-height: 30px;
- 
-  width: 250px;
-  cursor: pointer;
-  font-size: 18px;
-  -webkit-transition-duration: 0.25s;
-          transition-duration: 0.25s;
-	text-decoration: none;
-}
-.dropDown:hover {
-	background-color: rgba(255, 255, 255, 0.4);
-}
-.dropDown a {
-	text-decoration: none;
-	color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+	  text-align: center;
+	position: relative;
+	left: 0;
+	margin-right: 10px;
 }
 
-.dropDown > li {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	
+.status li a,visited{ 
+display: block; 
+padding: 15px; 
+
+text-decoration: none;
+text-align: center;
+    transition: all .1s ease-in-out;
+    -o-transition: all .1s ease-in-out;
+    -webkit-transition: all .1s ease-in-out;
+    -moz-transition: all .1s ease-in-out;
 }
+.status li a:hover{ color: #F46F4F; }
+
+.dropdown-active{  }
+.dropdown-active a,visited{ color: #F46F4F; }
+
+.status li{ display: block; }
+
+
 .circle1 {
      
     border-radius: 50%;
