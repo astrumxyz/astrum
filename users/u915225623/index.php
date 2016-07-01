@@ -86,7 +86,7 @@ else {
 
 //Get user id for image		
 $sql = new mysqli("localhost","username","password","sqlserver");
-		$id = "SELECT id, time, blurb, admin, status, lastOnline FROM sqlserver.accounts WHERE username ='".$username."'";
+		$id = "SELECT * FROM sqlserver.accounts WHERE username ='".$username."'";
 		//echo $id;
 		//$id = "SELECT id FROM sqlserver.accounts WHERE username =";
 		$id=$sql->query($id);
@@ -147,6 +147,12 @@ $sql = new mysqli("localhost","username","password","sqlserver");
 		$stat3 = $sql->query($stat3);
 		}
 		
+		$mood = $id['moodStatus'];
+		if($mood == null)
+		{
+			$mood = "(we assume they're) pretty good";
+		}
+		
 //Image		
 		
 $dbh = new PDO("mysql:host=localhost;dbname=sqlserver", 'username', 'password');
@@ -182,8 +188,10 @@ $array = $stmt->fetch();
 		
 echo '<div class = "profileimage">';
 echo '<img src="'.$src.'"/></div>';
-echo '<p class = statHeader>Activity: '.$status.'</p>';		
-		
+
+echo '<p class = statHeader>Activity: '.$status.'</p>';
+		echo '<p class = statHeader2>Status: '.$mood.'</p>';
+
 echo '<h3>Date Joined</h3>';
 echo '<p class = profiletxt>'.$mnth." ".$day." ".$yr.'</p>';
 echo '<h3 class = profileHeader>Who is '.$username.'?';

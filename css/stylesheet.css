@@ -1041,7 +1041,15 @@ h3 {
 .statHeader {
 	font-family: 'Source Sans Pro', sans-serif;
     color: white;
-	padding-top: 40px;
+	padding-top: 50px;
+    text-align: center;
+    font-size: 22px;
+  font-weight: 300;
+}
+.statHeader2 {
+	font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+	padding-top: 10px;
     text-align: center;
     font-size: 22px;
   font-weight: 300;

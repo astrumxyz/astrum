@@ -72,10 +72,12 @@ echo '<div class="wrapperpm">';
 			<ul>
 				<?php
 //
+				$convoArray = array();
+				
 echo '<form class="usersearchpm" method="post"><input class="searchbarpm" name="searchbarpm"></input></form>';
 //display user currently chatting with
     $con = mysqli_connect("localhost","username","password","sqlserver");
-				//check $_GET['id'] is set
+				
 				if(isset($_GET['id'])){
 					$user_two = trim(mysqli_real_escape_string($con, $_GET['id']));
 					//check $user_two is valid
@@ -83,20 +85,51 @@ echo '<form class="usersearchpm" method="post"><input class="searchbarpm" name="
                     $second = mysqli_fetch_assoc($q);
                     //echo $q['username'];
                     echo "<a href='message.php?id={$second['id']}'><li><img class = 'dmCircle' src = '../images/chatCircle.png'/> {$second['username']}</li></a>";
-                    
+					
+					//------------------
+				
+                    //$num = mysqli_query($con, "SELECT * FROM `pm_messages` WHERE user_from=".$account['id']."");
+				$numCon = mysqli_query($con, "SELECT * FROM `conversation` WHERE user_one=".$account['id']."");
+					$numrows = mysqli_num_rows($numCon);
+				while ($u = mysqli_fetch_assoc($numCon))
+					{
+					//get other users usernames to echo link
+	$getUserTwo = mysqli_query($con, "SELECT * FROM `accounts` WHERE id=".$u['user_two']."");
+		$s = mysqli_fetch_assoc($getUserTwo); //s[username] is a user that DOES have convo
+					
+					
+					//$convoArray.append($s['username']);
+					array_push($convoArray, $s['username']);
+					//echo "<a href='message.php?id={$s['id']}'><li><img class = 'dmCircle' src = '../images/chatCircle.png'/>{$s['username']} </li></a>";
+				}
 if(isset($_POST['searchbarpm'])){
+//	foreach($convoArray as $name)
+//	{
+//		echo $name;
+//	}
 //$sess->getUsers();
     $dbh = mysqli_connect("localhost","username","password","sqlserver");
                     $query = $_POST['searchbarpm'];
 					$q = mysqli_query($dbh, "SELECT * FROM sqlserver.accounts WHERE username LIKE '%".$query."%'");
 					//display all the results
 					while($row = mysqli_fetch_assoc($q)){
-                        if($row['id']!= $user_id && $row['id']!= $second['id']) {
-						echo "<a href='message.php?id={$row['id']}'><li><img class = 'dmCircle' src = '../images/noChatCircle.png'/> {$row['username']}</li></a>";
+						
+//						$checkConvo = mysqli_query($dbh, "SELECT * FROM sqlserver.conversation WHERE user_one=".$user_id." AND user_two=".$row['id']."");
+							
+                        if($row['id']!= $user_id && $row['id']!= $second['id']) { //only output users they dont have convo going with because theyre already printed!!!
+								
+						if(in_array($row['username'], $convoArray)) {
+ 
+    echo "<a href='message.php?id={$row['id']}'><li><img class = 'dmCircle' src = '../images/chatCircle.png'/> {$row['username']}</li></a>";
+}
+else {
+    echo "<a href='message.php?id={$row['id']}'><li><img class = 'dmCircle' src = '../images/noChatCircle.png'/> {$row['username']}</li></a>";
+}
+				
                         }
 					}
-                }
 }//
+				}
 
 				?>
 			</ul>
