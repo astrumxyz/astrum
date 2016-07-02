@@ -86,7 +86,7 @@ echo '<div id="menutoggle">
   <span></span>
   <span></span>
 </div>';
-echo '<p class= "title">ASTRUM.XYZ</p>';
+echo '<a href = "../" class= "title">ASTRUM.XYZ</a>';
 echo '</div>';
 echo '<div class="menubar">';
     
@@ -139,17 +139,17 @@ echo '<form class="statusForm" action="" method="post" enctype="multipart/form-d
         <li class="clickSlide">
         <div>Set Your Status</div>
             <ul>
-                <li><a href="../php/updatestatus.php?update=true&link1=<?=$uniqid?>">Chipper</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link2=<?=$uniqid?>">Bored</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link3=<?=$uniqid?>">Depressed</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link4=<?=$uniqid?>">Tired</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link5=<?=$uniqid?>">Hungry</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link6=<?=$uniqid?>">Lonely</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link7=<?=$uniqid?>">Social</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link8=<?=$uniqid?>">Irritated</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link9=<?=$uniqid?>">Ecstatic</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link10=<?=$uniqid?>">Angry</a></li>
-                <li><a href="../php/updatestatus.php?update=true&link11=<?=$uniqid?>">Pretty good</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link1=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f439.png"/>Chipper</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link2=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f612.png"/>Bored</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link3=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f61e.png"/>Depressed</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link4=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f634.png"/>Tired</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link5=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f959.png"/>Hungry</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link6=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f616.png"/>Lonely</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link7=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f525.png"/>Social</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link8=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f644.png"/>Irritated</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link9=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f601.png"/>Ecstatic</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link10=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f621.png"/>Not too happy</a></li>
+                <li><a href="../php/updatestatus.php?update=true&link11=<?=$uniqid?>"><img class="emoji" src= "../images/emojis/1f642.png"/>Pretty good</a></li>
             </ul>
         </li></ul>';
     

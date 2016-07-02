@@ -55,7 +55,7 @@ echo '<div id="menutoggle">
   <span></span>
 </div>';
 echo '</div>';
-echo '<p class= "title">ASTRUM.XYZ</p>';
+echo '<a href = "#" class= "title">ASTRUM.XYZ</a>';
 echo '</div>';
 echo '<div class="menubar">';
 echo '<nav class="circle">';    

@@ -62,7 +62,7 @@ elseif($uniqid= $_GET['link2'])
  }
     elseif($uniqid= $_GET['link10'])
  {
-     $stat = "angry";
+     $stat = "not too happy";
  }
     elseif($uniqid= $_GET['link11'])
  {
