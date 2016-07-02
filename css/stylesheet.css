@@ -125,7 +125,7 @@ background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
 .logoutframe {
 position:absolute;
 bottom:5px;
-height: 60px;
+height: 90px;
 width: 100%;
 background-color: white;
     
@@ -370,7 +370,7 @@ font-size: 25px;
   outline: 0;
   background-color: white;
   color: #53e3a6;
-height: 65px;
+height: 90px;
     border: 0;
   width: 100%;
   cursor: pointer;
@@ -469,14 +469,14 @@ text-align:center;
 }
 
 .header {
-    position: absolute;
+    position: fixed;
     width:calc(100% + 5px);
     height:43px;
     top:-5px;
 	z-index: 3;
     left: -5px;
 	background-color: white;
-	opacity: 0.8;
+	opacity: 0.7;
 	
     /*background-color:rgba(0,0,0,.5);*/
 /*    border-bottom:1px solid #53e3a6;*/
@@ -653,20 +653,20 @@ a.contacter {
 	color: white;
 	text-decoration: none;
 	font-size: 11px;
-	padding-top: 25px;
+	padding-top: 12px;
 	display: block;
 	
 }
 
 
 .menubar {
-    position: absolute;
+    position: fixed;
     height:calc(100% - 32px);
     width:137px;
     left:-140px;
     top:38px;
     background-color: #52DBA5;
-    
+    z-index: 90;
 }
 
 .menubutton {
@@ -1163,6 +1163,14 @@ left: calc(50% - 95px);
 
 .results {
     margin-top: 180px;
+	padding-bottom: 30px;
+}
+.loginlink {
+	text-decoration: none;color: white;z-index:3;position:relative;
+	font-size: 14px;
+}
+.content {
+	height: 30px;
 }
 
 .saveimage {
@@ -1551,3 +1559,35 @@ float: left;
 height: 80px;
 }
 /*pm stuff-------------------------------------------*/
+
+.footerTitle {
+    text-align: center;
+    font-size: 35px;
+	font-family: 'Nova SOLID', sans-serif;
+    color: white;
+    z-index: 5;
+    padding-top: 10px;
+}
+.footer li {
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 3px;
+    color: white;
+    text-decoration: none;
+}
+.footer a {
+    color: white;
+    font-weight: 500;
+    font-family: "Source Sans Pro";
+    font-size: 14px;
+    text-decoration: none;
+}
+.footer {
+    background:rgba(255,255,255,0.7);
+    position: absolute;
+    height: 89px;
+    width: 100%;
+    text-align: center;
+    top: 100%;
+}

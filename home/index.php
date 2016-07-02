@@ -72,7 +72,8 @@ echo '<form class="logoutframe" method="post" id="logout"><input class="logout" 
 echo'</div>';
     
 echo '<h1 class="headertext">Welcome back.</h1>';
-    
+echo '<div class="footer"> <p class= "footerTitle">ASTRUM.XYZ</p>
+<ul><li><a href="../php/goToRegister.php">REGISTER</a></li><li>-</li><li><a href="../../about">ABOUT</a></li><li>-</li><li><a href="mailto:coolsnt@gmail.com">CONTACT</a></li></ul></div>';    
 }
 }
 else { //user is not logged in, return to login screen

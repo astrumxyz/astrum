@@ -42,12 +42,12 @@ if(isset($_POST['create'])){
 echo '<div class="wrapper">';
 echo '<div class="container">';
 echo '<h1 id="titleHead">register</h1>';
-echo '<form class="form" id="login" method="post">';
+echo '<form class="form" id="login" method="post" style="padding-top: 70px;">';
 echo '<input type="text" placeholder="Username" name="username">';
 echo '<input type="password" placeholder="Password" name="password">';
 echo '<button type="submit" id="login-button" name="create">Register</button>';
 echo '</form>';
-echo '<a href="../" style="text-decoration: none;color: white;z-index:3;position:relative">already have an account? log in.</a>';
+echo '<a href="../" style="text-decoration: none;color: white;z-index:3;position:relative;font-size: 14px;">already have an account? log in.</a>';
 echo '</div>';
 echo '<ul class="bg-bubbles">';
 echo '<li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li>';

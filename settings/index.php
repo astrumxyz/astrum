@@ -156,6 +156,8 @@ echo '<form class="statusForm" action="" method="post" enctype="multipart/form-d
 echo '</form>';	
 	
 echo '</div>';
+echo '<div class="footer"> <p class= "footerTitle">ASTRUM.XYZ</p>
+<ul><li><a href="../php/goToRegister.php">REGISTER</a></li><li>-</li><li><a href="../../about">ABOUT</a></li><li>-</li><li><a href="mailto:coolsnt@gmail.com">CONTACT</a></li></ul></div>'; 
 //----------------------------------------------------  
     
 //echo '<div class="changeUser">Edit Username</div>';

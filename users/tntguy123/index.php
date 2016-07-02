@@ -11,7 +11,7 @@
 	
 	</head>
 
-	<body>
+	<body style='background:#53e3a6'> 
 <?php
 
 include("../../php/Session.class.php");
@@ -203,6 +203,8 @@ echo '</h3>';
 echo '<p class = profiletxt>'.$blurb.'</p>';
 		
 echo '</div>';
+echo '<div class="footer"> <p class= "footerTitle">ASTRUM.XYZ</p>
+<ul><li><a href="../php/goToRegister.php">REGISTER</a></li><li>-</li><li><a href="../../about">ABOUT</a></li><li>-</li><li><a href="mailto:coolsnt@gmail.com">CONTACT</a></li></ul></div>'; 
 		
 ?>
 </body>

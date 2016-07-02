@@ -10,7 +10,7 @@
 <script type='text/javascript' src='../js/livemessages.js'></script>
 <script type='text/javascript' src='../js/users.js'></script>
 </head>
-<body style = "background: url('../images/cyanwhitebackground.png');background-size:cover;background-attachment:fixed";>
+<body style='background:#53e3a6'> 
 <?php
 include("../php/Session.class.php");
 $sess = new Session();
@@ -65,8 +65,11 @@ echo '<div class="wrapper">';
 echo '<form class="usersearch" method="post"><input class="searchbar" name="searchbar"></input><input type="submit" class="submitsearch" value="search" name="submitsearch"></input></form>';
 if(isset($_POST['submitsearch']) || isset($_POST['searchbar'])){
 $sess->getUsers();
-echo '</div>';
 }
+echo '</div>';
+echo '<div class="footer"> <p class= "footerTitle">ASTRUM.XYZ</p>
+<ul><li><a href="../php/goToRegister.php">REGISTER</a></li><li>-</li><li><a href="../../about">ABOUT</a></li><li>-</li><li><a href="mailto:coolsnt@gmail.com">CONTACT</a></li></ul></div>'; 
+
 }
 else { //user is not logged in, return to login screen
 header('Location: ../');
