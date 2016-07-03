@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Astrum</title>
+	<title>astrum.xyz</title>
 	<link rel='stylesheet' type='text/css' href='css/loginsheet.css'/>
 	<link rel="icon" type = "image/x-icon" href="favicon2.ico" />
 	<script type="text/javascript" src="js/jquery.js"></script>

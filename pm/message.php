@@ -30,7 +30,7 @@ header('Location: ../');
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Direct Message</title>
+	<title>astrum DM</title>
 	
     <link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
 	<link rel="icon" type = "image/x-icon" href="../favicon2.ico" />

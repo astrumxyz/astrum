@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Astrum settings</title>
+	<title>astrum settings</title>
 	<link rel='stylesheet' type='text/css' href='../css/stylesheet.css'/>
 	<link rel="icon" type = "image/x-icon" href="../favicon2.ico" />	
 	<script type="text/javascript" src="../js/jquery.js"></script>

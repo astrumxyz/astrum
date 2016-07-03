@@ -40,24 +40,37 @@ while($msg = $messages->fetch_assoc())
 //	echo '<div class="message" style="color:#FF00FF; font-family: Source Sans Pro; font-size: 18px"><img class="chatimg" src="'.$sess->getChatImageActual($msg['author_id']).'"/>';
 //echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
 //}
-if($msg['author']==$account['username'])
-{
-	echo '<div class="message" style = "font-family: Source Sans Pro; font-size: 18px; color: '.$account['color'].'"><img class="chatimg" src="'.$sess->getChatImageActual($msg['author_id']).'"/>';
 
-	//old way-
-	//'data:image/jpeg;base64,.$sess->getChatImageActual($msg['author_id'])['chatimage']
+$sql2 = new mysqli("localhost","username","password","sqlserver");
+$author = "SELECT color FROM sqlserver.accounts WHERE username='".$msg['author']."'";
+$author = $sql2->query($author);
+$info = $author->fetch_assoc();
 	
+echo '<div class="message" style = "font-family: Source Sans Pro; font-size: 18px; color: '.$info['color'].'"><img class="chatimg" src="'.$sess->getChatImageActual($msg['author_id']).'"/>';
 echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
-}
-	else {
-		echo '<div class="message" style = "font-family: Source Sans Pro; font-size: 18px; color: white"><img class="chatimg" src="'.$sess->getChatImageActual($msg['author_id']).'"/>';
-
-	//old way-
-	//'data:image/jpeg;base64,.$sess->getChatImageActual($msg['author_id'])['chatimage']
 	
-		echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
-	}
-}
+	//Old way- couldnt see past accounts:
+	
+//if($msg['author']==$account['username'])
+//{
+//	echo '<div class="message" style = "font-family: Source Sans Pro; font-size: 18px; color: '.$account['color'].'"><img class="chatimg" src="'.$sess->getChatImageActual($msg['author_id']).'"/>';
+//
+//	//old way-
+//	//'data:image/jpeg;base64,.$sess->getChatImageActual($msg['author_id'])['chatimage']
+//	
+//echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
+//}
+//	else {
+//		echo '<div class="message" style = "font-family: Source Sans Pro; font-size: 18px; color: white"><img class="chatimg" src="'.$sess->getChatImageActual($msg['author_id']).'"/>';
+//
+//	//old way-
+//	//'data:image/jpeg;base64,.$sess->getChatImageActual($msg['author_id'])['chatimage']
+//	
+//		echo '<div style="float:left">'.$msg['author']." : ".$msg['content'].'</div></div>';
+//	}
+	
+	
+} //keep this one
 $sql->close();
 }
 }
