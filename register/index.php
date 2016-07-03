@@ -11,6 +11,10 @@
 
 	<body>
 <?php
+		
+session_start();
+$_SESSION['error'] = "no";
+echo $_SESSION['error'];
 
 include("../php/Session.class.php");
 $sess = new Session();
@@ -42,7 +46,12 @@ if(isset($_POST['create'])){
 echo '<div class="wrapper">';
 echo '<div class="container">';
 echo '<h1 id="titleHead">register</h1>';
-echo '<form class="form" id="login" method="post" style="padding-top: 70px;">';
+
+echo '<form class="form" id="login" method="post" style="padding-top: 70px">';
+if($_SESSION['error']=="yes")
+{
+echo '<p class="regError"style="padding-bottom: 20px;color: white;z-index:3;position:relative;font-size: 12px;">sorry, username taken!</p>';
+}
 echo '<input type="text" placeholder="Username" name="username">';
 echo '<input type="password" placeholder="Password" name="password">';
 echo '<button type="submit" id="login-button" name="create">Register</button>';

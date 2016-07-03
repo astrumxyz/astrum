@@ -33,6 +33,9 @@ autoSizeText = function() {
 $(document).ready(function() {
     console.log("LOADED SCRIPT.JS");
 	
+	
+//	$('.regError').css('visibility','visible').hide().fadeIn(600).animate({paddingTop: 5,opacity:0},1000,'linear',function(){$(this).hide()});
+	
 	// NAV TOGGLE ONCLICK WITH SLIDE
     $(".clickSlide ul").hide();
     $(".status").click(function(){

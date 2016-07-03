@@ -98,11 +98,19 @@ class Session
         copy('../php/index.php','../users/'.$username.'/index.php');
         umask($oldmask);
         
-        header('Location: ../');
+			//log them in
+		
+	setcookie("session",$cookie,time()+3600*24,"/");
+		header("Refresh:0");	
+			
+        //header('Location: ../');
 		}
 		else
 		{
-		echo '<div class="error">error: username taken</div>';
+		echo 'taken!!';
+			
+		//header("Refresh:0");
+		$_SESSION['error'] = "yes";
 		}
 	}
 
